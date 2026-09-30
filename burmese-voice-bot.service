@@ -1,0 +1,22 @@
+[Unit]
+Description=Burmese Telegram Voice Clone Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=voicebot
+Group=voicebot
+WorkingDirectory=/opt/burmese-voice-bot
+EnvironmentFile=/opt/burmese-voice-bot/.env
+ExecStart=/opt/burmese-voice-bot/.venv/bin/python /opt/burmese-voice-bot/bot.py
+Restart=always
+RestartSec=5
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/opt/burmese-voice-bot
+
+[Install]
+WantedBy=multi-user.target
